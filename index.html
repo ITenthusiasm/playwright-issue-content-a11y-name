@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playwright Issue Content A11y</title>
+
+    <style>
+      label:has(+ input) {
+        &::after {
+          content: "*" / "";
+        }
+
+        &[data-acknowledge-asterisk]::after {
+          content: "*";
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <label for="name.first">First Name</label>
+    <input id="name.first" required />
+
+    <label for="name.last" data-acknowledge-asterisk>Last Name</label>
+    <input id="name.last" required />
+  </body>
+</html>
